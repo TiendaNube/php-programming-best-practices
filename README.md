@@ -26,9 +26,9 @@ En esta guia recopilamos varios principios de la Ingeniería de Software introdu
 
 No todos los principios deben seguirse estrictamente. Y puede que no estes de acuerdo con todos ellos. Si es así, eres bienvenido a enviar tu solicitud de cambio.
 
-Inspirado de [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet/blob/master/README.md).
+Tener en cuenta que la mayoría de los ejemplos en este artículo funcionan solo en PHP 7+.
 
-Tener en cuenta que la mayoría de los ejemplos en este artículo funcionan solo en PHP 7+.  
+Inspirado en [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet/blob/master/README.md).
 
 ## ¿Por qué seguir buenas prácticas?
 Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar en el momento sin tener en cuenta las mejores prácticas. Esto dificulta las revisiones y las pruebas de código. 
