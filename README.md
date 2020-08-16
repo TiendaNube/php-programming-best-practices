@@ -1,4 +1,4 @@
-# Mejores prácticas de programación en PHP utilizadas en Tiendanube.
+# Mejores prácticas en PHP utilizadas en Tiendanube.
 
 Este documento es una referencia para los desarrolladores de Tiendanube y para la comunidad de PHP en general y tiene como objetivo ayudar y guiar a los mismos a escribir código limpio.
 
