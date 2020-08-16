@@ -178,7 +178,7 @@ saveCityZipCode($matches['street'], $matches['zipCode']);
 
 Debemos minimizar al máximo los niveles de indentación. Muchas declaraciones if-else anidadas pueden hacer tu código difícil de seguir. 
 
-**Bad**
+**Mal**
 
 ```php
 function isShopOpen($day): bool
@@ -204,7 +204,7 @@ function isShopOpen($day): bool
 }
 ```
 
-**Good**
+**Bien**
 
 ```php
 function isShopOpen(string $day): bool
@@ -232,7 +232,7 @@ Using this we only have to change in centralize place and others will adapt it.
 
 La sentencia `else` puede dificultar la lectura del código si la sentencia `if` contiene demasiado código. 
 
-**Bad**
+**Mal**
 
 ```php
 if ($product->hasStock()) {
@@ -242,7 +242,7 @@ if ($product->hasStock()) {
 }
 ```
 
-**Good**
+**Bien**
 
 Para evitar utilizar la sentencia `else` podemos utilizar Cláusulas de Guarda.
 La cláusula de guarda es una técnica sensilla que consiste en negar la condición de la consulta y eliminar la sentencia `else`.
