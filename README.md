@@ -22,17 +22,17 @@ Este documento es una referencia para los desarrolladores de Tiendanube y para l
 
 ![Humorous image of software quality estimation as a count of how many expletives you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 
-En esta guia recopilamos varios principios de la Ingeniería de Software introducidos en diferentes libros y experiencias propias que creemos que ayudarán a escribir mejor código.
+En esta guía recopilamos varios principios de la Ingeniería de Software introducidos en diferentes libros y experiencias propias que creemos que son buenas prácticas.
 
-No todos los principios deben seguirse estrictamente. Y puede que no estes de acuerdo con todos ellos. Si es así, eres bienvenido a enviar tu solicitud de cambio.
+No todos los principios deben seguirse estrictamente y puede que no estés de acuerdo con todos ellos, si es así, eres bienvenido a enviar tu solicitud de cambio.
 
-Tener en cuenta que la mayoría de los ejemplos en este artículo funcionan solo en PHP 7+.
+Tener en cuenta que todos de los ejemplos en este artículo funcionan en versiones superiores de PHP 7.0.
 
 Inspirado en [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet/blob/master/README.md).
 
 ## ¿Por qué seguir buenas prácticas?
-Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar en el momento sin tener en cuenta las mejores prácticas. Esto dificulta las revisiones y las pruebas de código. 
-Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo. Pero queremos que nuestro código sea reutilizable, legible y mantenible. Y eso requiere desarrollar de la manera correcta, no de la manera fácil.
+Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar rapidamente sin tener en cuenta las buenas prácticas. Posteriormente esto dificulta las revisiones y las pruebas de código.
+Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo, sin embargo nuestro objetivo como desarrollador debe ser que nuestro código sea reutilizable, legible y mantenible. Y eso requiere algunas veces un esfuerzo extra.
 
 # Clean Code
 
