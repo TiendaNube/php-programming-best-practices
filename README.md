@@ -4,8 +4,8 @@ Este documento es una referencia para los desarrolladores de Tiendanube y para l
 
 # Tabla de Contenidos
 
-- [Introducción](#introduccin)
-    - [¿Por qué seguir buenas prácticas?](#por-qu-seguir-buenas-prcticas)
+- [Introducción](#introducción)
+    - [¿Por qué seguir buenas prácticas?](#por-qué-seguir-buenas-prácticas)
 - [Clean Code](#clean-code)
   - [Naming](#naming)
   - [Variables](#variables)
@@ -32,6 +32,7 @@ Inspirado en [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet
 
 ## ¿Por qué seguir buenas prácticas?
 Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar rápidamente sin tener en cuenta las buenas prácticas. Posteriormente esto dificulta las revisiones y las pruebas de código.
+
 Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo, sin embargo nuestro objetivo como desarrollador debe ser que nuestro código sea reutilizable, legible y mantenible. Y eso requiere algunas veces un esfuerzo extra.
 
 # Clean Code
