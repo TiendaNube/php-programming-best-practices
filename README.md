@@ -31,7 +31,7 @@ Tener en cuenta que todos de los ejemplos en este artículo funcionan en version
 Inspirado en [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet/blob/master/README.md).
 
 ## ¿Por qué seguir buenas prácticas?
-Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar rapidamente sin tener en cuenta las buenas prácticas. Posteriormente esto dificulta las revisiones y las pruebas de código.
+Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar rápidamente sin tener en cuenta las buenas prácticas. Posteriormente esto dificulta las revisiones y las pruebas de código.
 Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo, sin embargo nuestro objetivo como desarrollador debe ser que nuestro código sea reutilizable, legible y mantenible. Y eso requiere algunas veces un esfuerzo extra.
 
 # Clean Code
