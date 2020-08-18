@@ -1565,7 +1565,7 @@ function showList(array $employees): void
 }
 ```
 
-**Very good:**
+**Mejor:**
 
 Mejor aún si eliminamos variables temporales.
 
