@@ -1,6 +1,6 @@
 # Mejores prácticas en PHP utilizadas en Tiendanube.
 
-Este documento es una referencia para los desarrolladores de Tiendanube y para la comunidad de PHP en general y tiene como objetivo ayudar y guiar a los mismos a escribir código limpio.
+Este documento es una referencia para los desarrolladores de Tiendanube y para la comunidad de PHP en general. Tiene como objetivo ayudar y guiar a los mismos a escribir código limpio y de alta calidad.
 
 # Tabla de Contenidos
 
@@ -24,22 +24,22 @@ Este documento es una referencia para los desarrolladores de Tiendanube y para l
 
 En esta guía recopilamos varios principios de la Ingeniería de Software introducidos en diferentes libros y experiencias propias que creemos que son buenas prácticas.
 
-No todos los principios deben seguirse estrictamente y puede que no estés de acuerdo con todos ellos, si es así, eres bienvenido a enviar tu solicitud de cambio.
+No todos los principios deben seguirse estrictamente y puede que no estés de acuerdo con todos ellos, si es así, eres bienvenido a enviar tu Pull Request.
 
-Tener en cuenta que todos de los ejemplos en este artículo funcionan en versiones superiores de PHP 7.0.
+Hay que tener en cuenta que todos de los ejemplos en este artículo funcionan en versiones superiores de PHP 7.0.
 
 Inspirado en [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet/blob/master/README.md).
 
 ## <a name="best-practices">¿Por qué seguir buenas prácticas?</a>
 Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar rápidamente sin tener en cuenta las buenas prácticas. Posteriormente esto dificulta las revisiones y las pruebas de código.
-Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo, sin embargo nuestro objetivo como desarrollador debe ser que nuestro código sea reutilizable, legible y mantenible. Y eso requiere algunas veces un esfuerzo extra.
+Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo. Sin embargo, nuestro objetivo como desarrollador debe ser que nuestro código sea reutilizable, legible y mantenible. Y eso algunas veces requiere un esfuerzo extra.
 
 # Clean Code
 
 ## Naming
 
 <details>
-  <summary><b>Evite usar nombres malos</b></summary>
+  <summary><b>Evitar usar nombres complicados</b></summary>
 Un buen nombre permite que los desarrolladores entiendan fácilmente el código. El nombre debe reflejar lo que hace y dar contexto.
 
 **Mal:**
@@ -92,9 +92,9 @@ public function calculateProductPrice(int $productId, int $quantity)
 ## Variables
 
 <details>
-  <summary><b>Evitar valores magicos</b></summary>
+  <summary><b>Evitar valores mágicos</b></summary>
 
-Los valores mágicos son valores constantes que se especifican directamente dentro del código. Con frecuencia, dichos valores terminan duplicados dentro del sistema y se convierten en una fuente común de errores cuando se realizan cambios en algunos valores pero no en otros. 
+Valores mágicos se refiere a los valores constantes que se especifican directamente dentro del código. Con frecuencia, dichos valores terminan duplicados dentro del sistema y se convierten en una fuente común de errores cuando se realizan cambios. 
 
 **Mal:**
 
@@ -127,7 +127,7 @@ class Payment
     }
 }
 ```
-De esta manera solo tenemos que cambiar en un lugar centralizado.`
+De esta manera solo tenemos que cambiar en un único lugar centralizado.`
 
 **[⬆ Volver](#tabla-de-contenidos)**
 
@@ -136,7 +136,7 @@ De esta manera solo tenemos que cambiar en un lugar centralizado.`
 <details>
   <summary><b>Usar variables explicativas</b></summary>
 
-No fuerce al lector de su código a traducir lo que significa la variable. **Explícito es mejor que implícito**.
+No fuerce al lector del código a traducir lo que significa la variable. **Explícito es mejor que implícito**.
 
 **Mal:**
 
@@ -221,8 +221,6 @@ function isShopOpen(string $day): bool
 }
 ```
 
-Using this we only have to change in centralize place and others will adapt it.
-
 **[⬆ Volver](#tabla-de-contenidos)**
 
 </details>
@@ -236,7 +234,7 @@ La sentencia `else` puede dificultar la lectura del código si la sentencia `if`
 
 ```php
 if ($product->hasStock()) {
-    // código...
+    // mucho código...
 } else {
     return false;
 }
@@ -245,7 +243,7 @@ if ($product->hasStock()) {
 **Bien**
 
 Para evitar utilizar la sentencia `else` podemos utilizar Cláusulas de Guarda.
-La cláusula de guarda es una técnica sensilla que consiste en negar la condición de la consulta y eliminar la sentencia `else`.
+Las cláusulas de guarda es una técnica sensilla que consiste en negar la condición de la consulta y eliminar la sentencia `else`.
 ```php
 if (!$product->hasStock()) {
     return false;
@@ -293,6 +291,7 @@ class Product
 </details>
 
 ## <a name="mtodos-y-funciones">Métodos y Funciones</a>
+Los siguiente consejos aplican tanto a métodos como a funciones.
 
 <details>
   <summary><b>Declaración de tipos en parámetros y retornos</b></summary>
@@ -324,8 +323,8 @@ function sum(int $val1, int $val2): int
 <details>
   <summary><b>Argumentos de la función (idealmente no más de 2)</b></summary>
 
-El número ideal de argumentos es cero, después uno (monádico) y después dos (diádico). Siempre debes evitar desarrollar funciones o métodos con tres o más argumentos (poliádico). Ya que, si tenes más de dos argumentos significa que estás intentando hacer demasiado en la función.
-En los casos que necesitas establecer más de dos argumentos, es mejor utilizar un objeto como argumento. 
+El número ideal de argumentos es cero, después uno (monádico) y después dos (diádico). Siempre debes evitar desarrollar funciones o métodos con tres o más argumentos (poliádico). Más de dos argumentos significa que el método esta haciendo demasiadas cosas.
+Para los casos en donde se necesiten más de dos argumentos, es mejor utilizar un objeto como argumento.
 
 **Mal:**
 
@@ -371,7 +370,7 @@ function createProduct(ProductConfig $config): void
 <details>
   <summary><b>Las funciones deben hacer una cosa</b></summary>
 
-Cuando las funciones hacen más de una acción, se vuelven difíciles de razonar y probar. Cuando puedes aislar una función en una sola acción, ellas pueden ser refactorizadas con facilidad y tu código será mucho más fácil de leer y reutilizar.
+Cuando las funciones hacen más de una acción, se vuelven difíciles de razonar y probar. Cuando puedes aislar una función en una sola acción, ellas pueden ser refactorizadas con facilidad y el código será mucho más fácil de leer y reutilizar.
 
 **Mal:**
 
@@ -416,17 +415,15 @@ function isClientActive(int $client): bool
 <details>
   <summary><b>Tamaño reducido</b></summary>
 
-La primera regla de las funciones es que deben ser de tamaño reducido. La segunda regla es que deben ser todavía más reducidas.
-La experiencia cuenta que las funciones de más de 20 líneas de código aproximadamente, esconden más de una acción.
-
-Los programas que cuentan con funciones de pocas líneas de código, son obvias. Cada función cuenta una historia y cada una lleva a la siguiente de una forma natural. ¡A eso debes aspirar!
+La primera regla de las funciones es que deben ser de tamaño reducido. La segunda regla es que deben ser todavía más reducidos.
+La experiencia cuenta que las funciones con más de 20 líneas de código aproximadamente, esconden más de una acción.
 
 **[⬆ Volver](#tabla-de-contenidos)**
 
 </details>
 
 <details>
-  <summary><b>Los nombres de las funciones deben indicar lo que hacen</b></summary>
+  <summary><b>Los nombres de las funciones y métodos deben indicar lo que hacen</b></summary>
 
 **Mal:**
 
@@ -471,7 +468,7 @@ $message->send();
 <details>
   <summary><b>Las funciones deben tener sólo un nivel de abstracción</b></summary>
   
-Cuando tienes más de un nivel de abstracción usualmente es porque tu función está haciendo demasiado. Separarlas en funciones lleva a la reutilización y facilita las pruebas.
+Cuando existe más de un nivel de abstracción usualmente es porque la función está haciendo demasiado. Dividirlas en funciones más pequeñas lleva a la reutilización de las mismas y facilita las pruebas.
 
 **Mal:**
 
@@ -610,7 +607,7 @@ class BetterJSAlternative
 <details>
   <summary><b>No usar flags como parámetros de funciones</b></summary>
   
-Las banderas le dicen al usuario que la función hace más de una cosa. Divide tus funciones si siguen diferentes caminos basados en un valor booleano.
+Las banderas le dicen al usuario que la función hace más de una cosa. Se debe dividir las funciones si siguen diferentes caminos basados en un valor booleano.
 
 **Mal:**
 
@@ -646,11 +643,7 @@ function createTempFile(string $name): void
 <details>
   <summary><b>Evitar efectos secundarios</b></summary>
 
-Una función produce un efecto secundario si hace algo más que tomar un valor y devolver otros. Un efecto secundario puede ser escribir en un archivo, modificar alguna variable global, o accidentalmente darle todo tu dinero a un extraño.
-
-Ahora, ocasionalmente necesitaras los efectos secundarios en un programa. Como los ejemplos anteriores, necesitarás escribir en un archivo. Lo que quieres hacer en esos casos es centralizar donde realizarlos. No tengas muchas funciones y clases que escriban un archivo en particular. Ten un servicio que lo haga. Uno y sólo uno.
-
-El punto principal es evitar trampas comunes como compartir estados entre objetos sin alguna estructura, usar tipos de datos mutables que puedan ser escritos por cualquiera, y no centralizar donde el efecto paralelo ocurre. Si puedes hacerlo, serás más feliz que la vasta mayoría de los demás programadores.
+El punto principal es evitar compartir estados entre objetos sin alguna estructura, usar tipos de datos mutables que puedan ser escritos por cualquiera, y no centralizar donde el efectos ocurren.
 
 **Mal:**
 
@@ -737,7 +730,7 @@ foreach ($items as $item) {
 
 Al tener declaraciones `if` dentro de nuestras funciones, estamos diciendo que nuestra función puede hacer más de una cosa.
 
-  Podemos utilizar polimorfismo para evitar condicionales.
+Una de varias soluciones es utilizar polimorfismo para evitar condicionales.
 
 **Mal:**
 
@@ -913,7 +906,7 @@ if ($payment->isPending()) {
   Al momento de pensar y crear una clase debemos partir de la premisa que son clases finales. De esta forma promovemos la idea de que deben funcionar como una unidad del sistema.
   Permitiendo mayor entendimiento, mantenimiento y reutilización de la clase.
   
-  **La visibilidad de los objetos se debe ir abriendo según evolucione el código o en casos que lo justifique.**
+  **La visibilidad de los objetos se debe ir abriendo según evolucione el código o en casos justificados.**
 
 **No tan bien:**
 
@@ -1052,9 +1045,9 @@ $product = new Product('Foo', 1000.00);
 
 Composición sobre herencia es un principio de diseño que permite una mayor flexibilidad.
 Es más natural construir clases de dominio a partir de varios componentes 
-que tratar de encontrar puntos en común entre ellos y crear un árbol genealógico, como así ocurre con la herencia.
+que tratar de encontrar puntos en común entre ellos y crear un árbol genealógico, como ocurre con la herencia.
 La composición también proporciona un dominio del negocio más estable a largo plazo, 
-ya que es menos propenso a las peculiaridades clases hijas de hijas de hijas.
+ya que es menos propenso a las peculiaridades que puedan llegar a tener las clases hijas de hijas de hijas...
 
 **Mal:**
 
@@ -1079,7 +1072,7 @@ $car = new Car();
 $car->accelarate();
 ```
 En este ejemplo existe un acoplamiento muy estrecho entre las clases `Vehicle` y `Car`.
-i algo cambia en la clase `Vehicle`, específicamente en el método `move()`, la clase `Car` puede romperse fácilmente
+Si algo cambia en la clase `Vehicle`, específicamente en el método `move()`, la clase `Car` puede romperse fácilmente
 ya que la superclase `Vehicle` no tiene idea de para qué la utilizan las clases hijas.
 
 **Bien:**
@@ -1212,12 +1205,12 @@ y escribir un código simple para generar XML. Ahora solo tenemos una razón par
 </details>
 
 <details>
-  <summary><b>Principio abierto/cerrado (OCP)</b></summary>
+    <summary><a name="openclosed-principle-ocp"><b>Principio abierto/cerrado (OCP)</b></a></summary>
 
 Las entidades de software (clases, módulos, funciones, etc) deben ser abiertas para ser extendidas, pero cerradas para modificarlas.
-Este principio establece que puedes permitir a los usuarios agregar nuevas funcionalidades pero sin cambiar el código existente.
+Este principio establece que puedes permitir a tus colegas desarrolladores agregar nuevas funcionalidades pero sin cambiar el código existente.
 
-Parece complicado, no? Pero gracias a las interfaces y abstracciones se convierte en algo muy simple.
+Parece complicado pero gracias a las interfaces y abstracciones se convierte en algo muy simple.
 
 **Mal:**
 
@@ -1291,8 +1284,7 @@ Gracias a la interfaz `PaymentMethod`, el método `pay()` quedo cerrado para mod
 <details>
   <summary><b>Principio de sustitución de Liskov (LSP)</b></summary>
 
-El principio de Liskov establece que si tienes una clase padre y una clase hija, entonces la clase padre y la clase hija 
-pueden intercambiarse sin obtener resultados incorrectos.
+El principio de Liskov establece que, dada una clase padre y una clase hija, pueden intercambiarse sin obtener resultados incorrectos.
 
 **Mal:**
 
@@ -1333,7 +1325,7 @@ class Square extends Rectangle
 }
 ```
 
-Debido a que un `Square` es un poco diferente de un `Rectangle`, necesitamos anular parte del código para permitir 
+Debido a que `Square` es diferente a `Rectangle`, se necesita anular parte del código para permitir 
 que un cuadrado exista correctamente.
 
 Anular mucho código en clases para adaptarse a situaciones específicas puede provocar problemas de mantenimiento.
@@ -1360,8 +1352,7 @@ class Square implements Quadrilateral
 }
 ```
 
-La conclusión aquí es que si encuentra que está anulando una gran cantidad de código, entonces tal vez su arquitectura 
-sea incorrecta y debería pensar en el principio de sustitución de Liskov.
+La conclusión aquí es que si se anulando gran parte del código, entonces tal vez la arquitectura no sea la correcta y se debería pensar en el principio de sustitución de Liskov.
 
 **[⬆ Volver](#tabla-de-contenidos)**
 
@@ -1370,7 +1361,7 @@ sea incorrecta y debería pensar en el principio de sustitución de Liskov.
 <details>
   <summary><b>Principio de la segregación de la interfaz (ISP)</b></summary>
 
- El principio de segregación de la interfaz dice que un cliente solo debe conocer los métodos que van a utilizar y no aquellos que no utilizarán.
+ El principio de segregación de la interfaz dice que un cliente solo debe conocer los métodos que van a utilizar y no aquellos que no utilizará.
 
 **Mal:**
 
@@ -1404,12 +1395,12 @@ class Developer implements Worker
     }
 }
 ```
-En este ejemplo vemos como la interfaz `Worker` abarca muchas funcionalidades y nos vemos obligados a implementar 
+En el ejemplo anterior, la interfaz `Worker` abarca demasiadas funcionalidades obligando a implementar 
 el método `callToClient()` en la clase `Developer` o devolver falso en el método `code()` para `Manager` ya que los managers no desarrollan. 
 
 **Bien:**
 
-La solución es dividir en varias interfaces especificas.
+Al aplicar ISP las interfaces quedan divididas en varias especificas.
 
 ```php
 interface Worker 
@@ -1447,7 +1438,7 @@ class Manager implements Worker, ClientFacer
 <details>
   <summary><b>Principio de la inversión de dependencias (DIP)</b></summary>
 
-El principio de la inversión de dependencias nos dice que las clases no deben depender de clases concretas, sino que deben depender de interfaces.
+El principio de la inversión de dependencias consiste en que las clases no deben depender de clases concretas, sino que deben depender de abstracciones.
 
 **Mal:**
 
@@ -1505,9 +1496,9 @@ Otro ejemplo de este principio lo vimos en la sección de [Composición sobre He
 Según este principio toda pieza de información nunca debería ser duplicada debido a que la duplicación incrementa la dificultad 
 en los cambios y evolución posterior, puede perjudicar la claridad y crear un espacio para posibles inconsistencias.
 
-A menudo tienes código duplicado porque tienes dos o más cosas ligeramente diferentes, que comparten mucho en común, 
-pero sus diferencias te fuerzan a tener dos o más funciones separadas haciendo mucho de lo mismo. 
-Remover código duplicado significa crear una abstracción que puedan manejar diferentes conjuntos de cosas en una función/modulo/clase. 
+A menudo se tiene código duplicado porque existen dos o más cosas ligeramente diferentes que comparten mucho en común, 
+pero sus diferencias fuerzan a tener dos o más funciones separadas haciendo mas de lo mismo. 
+Remover código duplicado significa crear una abstracción que puedan manejar diferentes conjuntos de cosas en una función/método/clase. 
 
 **Mal:**
 
@@ -1567,7 +1558,7 @@ function showList(array $employees): void
 
 **Mejor:**
 
-Mejor aún si eliminamos variables temporales.
+Mejor aún si se eliminan variables temporales.
 
 ```php
 function showList(array $employees): void
@@ -1590,8 +1581,8 @@ function showList(array $employees): void
 <details>
   <summary><b>¿Qué es el principio Tell don't ask?</b></summary>
 
-El principio Tell Don’t Ask nos dice que no debemos preguntar a un objeto sobre su estado para luego realizar una acción. 
-Por el contrario, debemos realizar la acción directamente.
+El principio Tell Don’t Ask dice que no se debe preguntar a un objeto sobre su estado para luego realizar una acción. 
+Por el contrario, debe realizar la acción directamente.
 
 **Mal:**
 
