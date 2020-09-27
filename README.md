@@ -4,7 +4,7 @@ Este documento es una referencia para los desarrolladores de Tiendanube y para l
 
 # Tabla de Contenidos
 
-- [Introducción](#introduccin)
+- [Introducción](#intro)
     - [¿Por qué seguir buenas prácticas?](#por-qu-seguir-buenas-prcticas)
 - [Clean Code](#clean-code)
   - [Naming](#naming)
@@ -18,7 +18,7 @@ Este documento es una referencia para los desarrolladores de Tiendanube y para l
   - [Principio Tell don't ask](#principio-tell-dont-ask)
 - [Testing](#testing)
 
-# Introducción
+# <a name="intro">Introducción</a>
 
 ![Humorous image of software quality estimation as a count of how many expletives you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 
