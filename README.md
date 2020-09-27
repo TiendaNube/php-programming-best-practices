@@ -5,14 +5,14 @@ Este documento es una referencia para los desarrolladores de Tiendanube y para l
 # Tabla de Contenidos
 
 - [Introducción](#intro)
-    - [¿Por qué seguir buenas prácticas?](#por-qu-seguir-buenas-prcticas)
+    - [¿Por qué seguir buenas prácticas?](#best-practices)
 - [Clean Code](#clean-code)
   - [Naming](#naming)
   - [Variables](#variables)
   - [Métodos y Funciones](#mtodos-y-funciones)
   - [Condicionales](#condicionales)
   - [Clases y Objetos](#clases-y-objetos)
-- [Principios del Diseño de Software](#principios-del-diseo-de-software)
+- [Principios de Diseño de Software](#principios-de-diseo-de-software)
   - [SOLID](#solid)
   - [Principio DRY](#principio-dry)
   - [Principio Tell don't ask](#principio-tell-dont-ask)
@@ -30,7 +30,7 @@ Tener en cuenta que todos de los ejemplos en este artículo funcionan en version
 
 Inspirado en [clean-code-dotnet](https://github.com/thangchung/clean-code-dotnet/blob/master/README.md).
 
-## ¿Por qué seguir buenas prácticas?
+## <a name="best-practices">¿Por qué seguir buenas prácticas?</a>
 Como desarrolladores, a veces nos sentimos tentados a escribir código de cierta manera que sea conveniente para terminar rápidamente sin tener en cuenta las buenas prácticas. Posteriormente esto dificulta las revisiones y las pruebas de código.
 Podríamos decir que estamos _codificando_ y, al hacerlo, hacemos más difícil para otros _decodificar_ nuestro trabajo, sin embargo nuestro objetivo como desarrollador debe ser que nuestro código sea reutilizable, legible y mantenible. Y eso requiere algunas veces un esfuerzo extra.
 
@@ -292,7 +292,7 @@ class Product
 
 </details>
 
-## Métodos y Funciones
+## <a name="mtodos-y-funciones">Métodos y Funciones</a>
 
 <details>
   <summary><b>Declaración de tipos en parámetros y retornos</b></summary>
@@ -1125,7 +1125,7 @@ rompe con el acoplamiento estrecho que teníamos en la herencia.
 
 </details>
 
-# Principios del Diseño de Software
+# <a name="principios-de-diseo-de-software">Principios de Diseño de Software</a>
 
 <details>
   <summary><b>¿Qué es el Diseño de Software?</b></summary>
@@ -1586,7 +1586,7 @@ function showList(array $employees): void
 
 </details>
 
-## Principio Tell don't ask
+## <a name="principio-tell-dont-ask">Principio Tell don't ask</a>
 <details>
   <summary><b>¿Qué es el principio Tell don't ask?</b></summary>
 
