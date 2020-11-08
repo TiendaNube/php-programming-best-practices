@@ -1141,7 +1141,7 @@ rompe con el acoplamiento estrecho que teníamos en la herencia.
   Los cinco principios están muy relacionados entre si y nos brindan distintas técnicas para crear código de alta calidad.
 
 - [S: Principio de responsabilidad única (SRP)](#single-responsibility-principle-srp)
-- [O: Principio abierto/cerrado (OCP)](#openclosed-principle-ocp)
+- [O: Principio abierto/cerrado (OCP)](#open-closed-principle-ocp)
 - [L: Principio de sustitución de Liskov (LSP)](#liskov-substitution-principle-lsp)
 - [I: Principio de la segregación de la interfaz (ISP)](#interface-segregation-principle-isp)
 - [D: Principio de la inversión de dependencias (DIP)](#dependency-inversion-principle-dip)
@@ -1205,7 +1205,7 @@ y escribir un código simple para generar XML. Ahora solo tenemos una razón par
 </details>
 
 <details>
-    <summary><a name="openclosed-principle-ocp"><b>Principio abierto/cerrado (OCP)</b></a></summary>
+    <summary name="open-closed-principle-ocp"><b>Principio abierto/cerrado (OCP)</b></summary>
 
 Las entidades de software (clases, módulos, funciones, etc) deben ser abiertas para ser extendidas, pero cerradas para modificarlas.
 Este principio establece que puedes permitir a tus colegas desarrolladores agregar nuevas funcionalidades pero sin cambiar el código existente.
