@@ -243,7 +243,7 @@ if ($product->hasStock()) {
 **Bien**
 
 Para evitar utilizar la sentencia `else` podemos utilizar Cláusulas de Guarda.
-Las cláusulas de guarda es una técnica sensilla que consiste en negar la condición de la consulta y eliminar la sentencia `else`.
+Las cláusulas de guarda es una técnica sencilla que consiste en negar la condición de la consulta y eliminar la sentencia `else`.
 ```php
 if (!$product->hasStock()) {
     return false;
