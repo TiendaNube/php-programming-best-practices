@@ -354,13 +354,13 @@ class ProductConfig
     }
 }
 
-$config = new ProductConfig('foo', 'bar', 10.0, 100);
-createProduct($config);
-
 function createProduct(ProductConfig $config): void
 {
     // ...
 }
+
+$config = new ProductConfig('foo', 'bar', 10.0, 100);
+createProduct($config);
 ```
 
 **[⬆ Volver](#tabla-de-contenidos)**
